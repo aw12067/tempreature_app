@@ -1,0 +1,21 @@
+body
+{	
+	background-image: url('nature.jpg');
+	background-repeat: no-repeat;
+	font-family: Lucida Console;
+}
+.content
+{
+	margin-top: 180px;
+	text-align: center;
+}
+.input
+{
+	font-size: 30px;
+}
+#output
+{
+	margin-top: 170px;
+	font-size: 100px;
+	text-align: center;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Forecast</title>
+	<link rel="stylesheet" type="text/css" href="weather.css">
+</head>
+<body>
+	<div class="content">	
+		<p id="output">
+			No data
+		</p>	
+		<section class="input">
+			<label>Enter the name of city:</label>
+			<input id="city">
+			<button onclick="show_temp()">SUBMIT</button>
+		</section>		
+	</div>
+	<script type="text/javascript">
+		function show_temp() {
+			city = document.getElementById("city").value;
+
+			httpRequest = new XMLHttpRequest();
+			url = "https://api.weatherbit.io/v2.0/current?city="+city+"&key=3f63f06948b642da9f5b0e924bd49855";
+			httpRequest.open("GET",url);
+			httpRequest.send();
+
+			httpRequest.onreadystatechange = function(){
+				if(this.readyState == 4 && this.status == 200)
+				{
+					u_data = JSON.parse(this.responseText);
+					document.getElementById("output").innerHTML = u_data.data[0].temp + "&#8451;" ;
+				}
+				if(u_data.data[0].temp<25)
+				{
+					document.body.style.backgroundImage = "url('cold.jpg')";
+				}
+				else
+				{
+					document.body.style.backgroundImage = "url('hot.jpg')";
+				}
+			}
+
+		}
+	</script>
+</body>
+</html>
