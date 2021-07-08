@@ -2,16 +2,13 @@ body
 {	
 	background-image: url('nature.jpg');
 	background-repeat: no-repeat;
-	font-family: Lucida Console;
-}
-.content
-{
-	margin-top: 180px;
-	text-align: center;
+	font-family: 'Encode Sans SC', sans-serif;
+	margin-bottom: 30px;
 }
 .input
 {
 	font-size: 30px;
+	text-align: center;
 }
 #output
 {
