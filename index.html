@@ -1,22 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Weather Forecast</title>
+<!Doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Weather Forecast</title>
 	<link rel="stylesheet" type="text/css" href="weather.css">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300:500&display=swap" rel="stylesheet">
+
 </head>
-<body>
-	<div class="content">	
-		<p id="output">
-			No data
-		</p>	
-		<section class="input">
-			<label>Enter the name of city:</label>
-			<input id="city">
-			<button onclick="show_temp()">SUBMIT</button>
-		</section>		
+  <body>
+
+  	<!-- As a link -->
+	<nav class="navbar navbar-light bg-light">
+	  <a class="navbar-brand" href="#">WEATHER APP</a>
+	</nav>
+
+	<div class="container">
+		<div id="output">
+			<h2>NO DATA</h2>
+		</div>
+		<div class="input">
+			<label style="padding-top: 10px;padding-bottom: 10px;">Enter the name of city:</label>
+			<input type="text" class="form-control" id="city" aria-describedby="basic-addon3" style="margin-top: 10px;margin-bottom: 20px;">
+			<button class="btn btn-primary" onclick="show_temp()">SUBMIT</button>
+		</div>
 	</div>
 	<script type="text/javascript">
-		function show_temp() {
+		function show_temp() 
+		{
 			city = document.getElementById("city").value;
 
 			httpRequest = new XMLHttpRequest();
@@ -24,7 +45,8 @@
 			httpRequest.open("GET",url);
 			httpRequest.send();
 
-			httpRequest.onreadystatechange = function(){
+			httpRequest.onreadystatechange = function()
+			{
 				if(this.readyState == 4 && this.status == 200)
 				{
 					u_data = JSON.parse(this.responseText);
@@ -42,5 +64,10 @@
 
 		}
 	</script>
-</body>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </body>
 </html>
